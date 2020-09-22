@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head  xmlns:th="http://www.thymeleaf.org">
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"/>
+<meta charset="ISO-8859-1">
+<title>Financial Manager App</title>
+
+</head>
+<body>
+<div class="container bg-dark">
+<div class="col-md-12 text-center">
+<h2>List of Goals</h2>
+<a href="new" class="btn btn-primary btn-lg ">Create New Goal</a>
+<br/><br/>
+<table class="table table-bordered table-hover">
+<thead>
+<tr class="info">
+<th>Id</th>
+<th>Goal</th>
+<th>Amount</th>
+<th>MicroSaveAmount</th>
+<th>RemainAmount</th>
+<th>Description</th>
+<th>Add Micro Save</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr></thead>
+<tbody>
+<tr th:each="goals:${listGoals}">
+<td th:text="${goals.id}">ID</td>
+<td th:text="${goals.name}">Name</td>
+<td th:text="${goals.amount}">Amount</td>
+<td th:text="${goals.microSave}">MicroSaveAmount</td>
+<td th:text="${goals.remainAmount}" readonly="readonly">RemainAmount</td>
+<td th:text="${goals.details}">Details</td>
+<td><a th:href="@{'/micro/' + ${goals.id}}" class="btn btn-info">Add MicroSave</a>
+<td><a th:href="@{'/edit/' + ${goals.id}}" class="btn btn-warning">Edit</a>
+<td><a th:href="@{'/delete/' + ${goals.id}}" class="btn btn-danger">Delete</a>
+</tr></tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"/>
+<meta charset="ISO-8859-1">
+<title>Financial Manager App</title>
+</head>
+<body>
+<div class="container" align="center">
+<div class="col-md-12 text-center">
+<h1>Edit Goal</h1>
+<br/>
+<form action="#" th:action="@{/save}" th:object="${goals}" method="post">
+<table class="table table-bordered table-hover">
+<tr>
+<td class="info">Goal ID:</td>
+<td class="warning"><input type="text" th:field="*{id}" readonly="readonly"/></td>
+</tr>
+<tr>
+<td class="info">Goal Name:</td>
+<td><input type="text" th:field="*{name}"/></td>
+</tr>
+<tr>
+<td class="info">Amount:</td>
+<td><input type="text" th:field="*{amount}"/></td>
+</tr>
+<tr>
+<td class="info">MicroSave:</td>
+<td class="warning"><input type="text" th:field="*{microSave}" readonly="readonly"/></td>
+</tr>
+<tr>
+<td class="info">RemainAmount:</td>
+<td class="warning"><input type="text" th:field="*{remainAmount}" readonly="readonly"/></td>
+</tr>
+<tr>
+<td class="info">Description:</td>
+<td><input type="text" th:field="*{details}"/></td>
+</tr>
+<tr>
+<td class="active" colspan="2"><button type="submit" class="btn btn-success">Save</button></td>
+</tr>
+</table>
+</form>
+</div></div>
+</body>
+</html>
